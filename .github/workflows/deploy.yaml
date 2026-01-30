@@ -26,7 +26,7 @@ jobs:
         docker build -t leopincle/todoapp:${{ github.sha }} . 
         docker push leopincle/todoapp:${{ github.sha }}
   deploy:
-    depends-on: build
+    needs: build
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
